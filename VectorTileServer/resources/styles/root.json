@@ -7,9 +7,7 @@
       "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>, and <a href='https://www.un.org/geospatial/'>UN Geospatial</a><a href='https://geoportal.un.org/arcgis/apps/sites/#/unitemaps'><img src='https://geoportal.un.org/webapps/resources/LOGOS/PoweredbyUniteMaps.png' alt='Powered by Unite Maps'></a> <a href='http://unopengis.org/unopengis/main/main.php'><img src='https://unopengis.github.io/watermark/watermark.png' alt='UN OpenGIS' style='width:40px;height:40px;'></a>",
       "maxzoom": 16,
       "minzoom": 0,
-      "tiles": [
-        "https://dev-unvt.dfs.un.org/vtile-open/zxy/unosm-prod/{z}/{x}/{y}.pbf"
-      ],
+      "url": "https://un-vector-tile-toolkit.github.io/consume-gsc-1/VectorTileServer/",
       "type": "vector"
     }
   },
