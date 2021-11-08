@@ -1,34 +1,21 @@
 {
-  "version": 8,
-  "sprite": "https://dev-unvt.dfs.un.org/sprite_un/sprite_S",
-  "glyphs": "https://dev-unvt.dfs.un.org/font/{fontstack}/{range}.pbf",
-  "sources": {
-    "v": {
-      "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>, and <a href='https://www.un.org/geospatial/'>UN Geospatial</a><a href='https://geoportal.un.org/arcgis/apps/sites/#/unitemaps'><img src='https://geoportal.un.org/webapps/resources/LOGOS/PoweredbyUniteMaps.png' alt='Powered by Unite Maps'></a> <a href='http://unopengis.org/unopengis/main/main.php'><img src='https://unopengis.github.io/watermark/watermark.png' alt='UN OpenGIS' style='width:40px;height:40px;'></a>",
-      "maxzoom": 16,
-      "minzoom": 0,
-      "tiles": [
-        "https://dev-unvt.dfs.un.org/vtile-open/zxy/unosm-prod/{z}/{x}/{y}.pbf"
-      ],
-      "type": "vector"
-    }
-  },
-  "layers": [
+"version":8,
+"sprite": "https://dev-unvt.dfs.un.org/sprite_un/sprite_S",
+"glyphs": "https://dev-unvt.dfs.un.org/font/{fontstack}/{range}.pbf",
+"sources": {
+  "v": {
+    "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>, and <a href='https://www.un.org/geospatial/'>UN Geospatial</a>",
+    "maxzoom": 16,
+    "minzoom": 0,
+    "url": "https://un-vector-tile-toolkit.github.io/consume-gsc-1/VectorTileServer/",
+    "type": "vector"
+  }
+},
+"layers":[
     {
       "id": "background",
       "paint": {
-        "background-color": {
-          "stops": [
-            [
-              16,
-              "#D6EBF5"
-            ],
-            [
-              17,
-              "#FAF9F6"
-            ]
-          ]
-        }
+        "background-color": "#D6EBF5"
       },
       "type": "background"
     },
@@ -725,8 +712,8 @@
         "any",
         [
           "==",
-          "z_order",
-          4
+          "fclass",
+          "drain"
         ]
       ],
       "id": "ls-hydro-water-l-drain",
@@ -763,8 +750,8 @@
         "any",
         [
           "==",
-          "z_order",
-          3
+          "fclass",
+          "canal"
         ]
       ],
       "id": "ls-hydro-water-l-canal",
@@ -803,8 +790,8 @@
         "any",
         [
           "==",
-          "z_order",
-          2
+          "fclass",
+          "stream"
         ]
       ],
       "id": "ls-hydro-water-l-stream",
@@ -834,8 +821,8 @@
         "any",
         [
           "==",
-          "z_order",
-          1
+          "fclass",
+          "river"
         ]
       ],
       "id": "ls-hydro-water-l-river",
@@ -881,8 +868,8 @@
         "any",
         [
           "==",
-          "z_order",
-          1
+          "fclass",
+          "river"
         ]
       ],
       "id": "ls-water-l-label",
@@ -976,29 +963,6 @@
       },
       "source": "v",
       "source-layer": "bndl",
-      "type": "line"
-    },
-    {
-      "id": "ls-coastline-l",
-      "maxzoom": 18,
-      "minzoom": 15,
-      "paint": {
-        "line-color": "#9BAEB4",
-        "line-width": {
-          "stops": [
-            [
-              4,
-              0.4
-            ],
-            [
-              18,
-              0.8
-            ]
-          ]
-        }
-      },
-      "source": "v",
-      "source-layer": "cstl",
       "type": "line"
     },
     {
@@ -1264,10 +1228,10 @@
         "all",
         [
           "in",
-          "z_order",
-          15,
-          13,
-          11
+          "fclass",
+          "residential",
+          "track",
+          "unclassified"
         ],
         [
           "has",
@@ -1331,9 +1295,9 @@
         "all",
         [
           "in",
-          "z_order",
-          12,
-          10
+          "fclass",
+          "road",
+          "tertiary_link"
         ],
         [
           "has",
@@ -1401,9 +1365,9 @@
         "all",
         [
           "in",
-          "z_order",
-          9,
-          8
+          "fclass",
+          "tertiary",
+          "secondary_link"
         ],
         [
           "has",
@@ -1471,9 +1435,9 @@
         "all",
         [
           "in",
-          "z_order",
-          7,
-          6
+          "fclass",
+          "secondary",
+          "primary_link"
         ],
         [
           "has",
@@ -1541,9 +1505,9 @@
         "all",
         [
           "in",
-          "z_order",
-          5,
-          2
+          "fclass",
+          "primary",
+          "trunk_link"
         ],
         [
           "has",
@@ -1611,9 +1575,9 @@
         "all",
         [
           "in",
-          "z_order",
-          1,
-          4
+          "fclass",
+          "trunk",
+          "motorway_link"
         ],
         [
           "has",
@@ -1681,8 +1645,8 @@
         "all",
         [
           "==",
-          "z_order",
-          3
+          "fclass",
+          "motorway"
         ],
         [
           "has",
@@ -1750,15 +1714,15 @@
         "all",
         [
           "in",
-          "z_order",
-          14,
-          18,
-          19,
-          21,
-          17,
-          22,
-          20,
-          16
+          "fclass",
+          "path",
+          "pedestrian",
+          "footway",
+          "cycleway",
+          "living_street",
+          "steps",
+          "bridleway",
+          "service"
         ],
         [
           "has",
@@ -1810,10 +1774,10 @@
         "all",
         [
           "in",
-          "z_order",
-          15,
-          13,
-          11
+          "fclass",
+          "residential",
+          "track",
+          "unclassified"
         ],
         [
           "has",
@@ -1877,9 +1841,9 @@
         "all",
         [
           "in",
-          "z_order",
-          12,
-          10
+          "fclass",
+          "road",
+          "tertiary_link"
         ],
         [
           "has",
@@ -1947,9 +1911,9 @@
         "all",
         [
           "in",
-          "z_order",
-          9,
-          8
+          "fclass",
+          "tertiary",
+          "secondary_link"
         ],
         [
           "has",
@@ -2021,9 +1985,9 @@
         "all",
         [
           "in",
-          "z_order",
-          7,
-          6
+          "fclass",
+          "secondary",
+          "primary_link"
         ],
         [
           "has",
@@ -2095,9 +2059,9 @@
         "all",
         [
           "in",
-          "z_order",
-          5,
-          2
+          "fclass",
+          "primary",
+          "trunk_link"
         ],
         [
           "has",
@@ -2173,9 +2137,9 @@
         "all",
         [
           "in",
-          "z_order",
-          1,
-          4
+          "fclass",
+          "trunk",
+          "motorway_link"
         ],
         [
           "has",
@@ -2251,8 +2215,8 @@
         "all",
         [
           "==",
-          "z_order",
-          3
+          "fclass",
+          "motorway"
         ],
         [
           "has",
@@ -2328,10 +2292,10 @@
         "all",
         [
           "in",
-          "z_order",
-          15,
-          13,
-          11
+          "fclass",
+          "residential",
+          "track",
+          "unclassified"
         ],
         [
           "!has",
@@ -2356,9 +2320,9 @@
         "all",
         [
           "in",
-          "z_order",
-          12,
-          10
+          "fclass",
+          "road",
+          "tertiary_link"
         ],
         [
           "!has",
@@ -2383,9 +2347,9 @@
         "all",
         [
           "in",
-          "z_order",
-          9,
-          8
+          "fclass",
+          "tertiary",
+          "secondary_link"
         ],
         [
           "!has",
@@ -2410,9 +2374,9 @@
         "all",
         [
           "in",
-          "z_order",
-          7,
-          6
+          "fclass",
+          "secondary",
+          "primary_link"
         ],
         [
           "!has",
@@ -2437,9 +2401,9 @@
         "all",
         [
           "in",
-          "z_order",
-          5,
-          2
+          "fclass",
+          "primary",
+          "trunk_link"
         ],
         [
           "!has",
@@ -2464,9 +2428,9 @@
         "all",
         [
           "in",
-          "z_order",
-          1,
-          4
+          "fclass",
+          "trunk",
+          "motorway_link"
         ],
         [
           "!has",
@@ -2491,8 +2455,8 @@
         "all",
         [
           "==",
-          "z_order",
-          3
+          "fclass",
+          "motorway"
         ],
         [
           "!has",
@@ -2517,15 +2481,15 @@
         "all",
         [
           "in",
-          "z_order",
-          14,
-          18,
-          19,
-          21,
-          17,
-          22,
-          20,
-          16
+          "fclass",
+          "path",
+          "pedestrian",
+          "footway",
+          "cycleway",
+          "living_street",
+          "steps",
+          "bridleway",
+          "service"
         ],
         [
           "!has",
@@ -2581,10 +2545,10 @@
         "all",
         [
           "in",
-          "z_order",
-          15,
-          13,
-          11
+          "fclass",
+          "residential",
+          "track",
+          "unclassified"
         ],
         [
           "!has",
@@ -2651,9 +2615,9 @@
         "all",
         [
           "in",
-          "z_order",
-          12,
-          10
+          "fclass",
+          "road",
+          "tertiary_link"
         ],
         [
           "!has",
@@ -2724,9 +2688,9 @@
         "all",
         [
           "in",
-          "z_order",
-          9,
-          8
+          "fclass",
+          "tertiary",
+          "secondary_link"
         ],
         [
           "!has",
@@ -2801,9 +2765,9 @@
         "all",
         [
           "in",
-          "z_order",
-          7,
-          6
+          "fclass",
+          "secondary",
+          "primary_link"
         ],
         [
           "!has",
@@ -2878,9 +2842,9 @@
         "all",
         [
           "in",
-          "z_order",
-          5,
-          2
+          "fclass",
+          "primary",
+          "trunk_link"
         ],
         [
           "!has",
@@ -2959,9 +2923,9 @@
         "all",
         [
           "in",
-          "z_order",
-          1,
-          4
+          "fclass",
+          "trunk",
+          "motorway_link"
         ],
         [
           "!has",
@@ -3040,8 +3004,8 @@
         "all",
         [
           "==",
-          "z_order",
-          3
+          "fclass",
+          "motorway"
         ],
         [
           "!has",
@@ -3120,10 +3084,10 @@
         "all",
         [
           "in",
-          "z_order",
-          15,
-          13,
-          11
+          "fclass",
+          "residential",
+          "track",
+          "unclassified"
         ],
         [
           "has",
@@ -3186,9 +3150,9 @@
         "all",
         [
           "in",
-          "z_order",
-          12,
-          10
+          "fclass",
+          "road",
+          "tertiary_link"
         ],
         [
           "has",
@@ -3255,9 +3219,9 @@
         "all",
         [
           "in",
-          "z_order",
-          9,
-          8
+          "fclass",
+          "tertiary",
+          "secondary_link"
         ],
         [
           "has",
@@ -3324,9 +3288,9 @@
         "all",
         [
           "in",
-          "z_order",
-          7,
-          6
+          "fclass",
+          "secondary",
+          "primary_link"
         ],
         [
           "has",
@@ -3393,9 +3357,9 @@
         "all",
         [
           "in",
-          "z_order",
-          5,
-          2
+          "fclass",
+          "primary",
+          "trunk_link"
         ],
         [
           "has",
@@ -3462,9 +3426,9 @@
         "all",
         [
           "in",
-          "z_order",
-          1,
-          4
+          "fclass",
+          "trunk",
+          "motorway_link"
         ],
         [
           "has",
@@ -3531,8 +3495,8 @@
         "all",
         [
           "==",
-          "z_order",
-          3
+          "fclass",
+          "motorway"
         ],
         [
           "has",
@@ -3599,15 +3563,15 @@
         "all",
         [
           "in",
-          "z_order",
-          14,
-          18,
-          19,
-          21,
-          17,
-          22,
-          20,
-          16
+          "fclass",
+          "path",
+          "pedestrian",
+          "footway",
+          "cycleway",
+          "living_street",
+          "steps",
+          "bridleway",
+          "service"
         ],
         [
           "has",
@@ -3659,10 +3623,10 @@
         "all",
         [
           "in",
-          "z_order",
-          15,
-          13,
-          11
+          "fclass",
+          "residential",
+          "track",
+          "unclassified"
         ],
         [
           "has",
@@ -3725,9 +3689,9 @@
         "all",
         [
           "in",
-          "z_order",
-          12,
-          10
+          "fclass",
+          "road",
+          "tertiary_link"
         ],
         [
           "has",
@@ -3794,9 +3758,9 @@
         "all",
         [
           "in",
-          "z_order",
-          9,
-          8
+          "fclass",
+          "tertiary",
+          "secondary_link"
         ],
         [
           "has",
@@ -3867,9 +3831,9 @@
         "all",
         [
           "in",
-          "z_order",
-          7,
-          6
+          "fclass",
+          "secondary",
+          "primary_link"
         ],
         [
           "has",
@@ -3940,9 +3904,9 @@
         "all",
         [
           "in",
-          "z_order",
-          5,
-          2
+          "fclass",
+          "primary",
+          "trunk_link"
         ],
         [
           "has",
@@ -4017,9 +3981,9 @@
         "all",
         [
           "in",
-          "z_order",
-          1,
-          4
+          "fclass",
+          "trunk",
+          "motorway_link"
         ],
         [
           "has",
@@ -4094,8 +4058,8 @@
         "all",
         [
           "==",
-          "z_order",
-          3
+          "fclass",
+          "motorway"
         ],
         [
           "has",
@@ -4166,6 +4130,15 @@
       "type": "line"
     },
     {
+      "filter": [
+        "all",
+        [
+          "in",
+          "z_order",
+          1,
+          3
+        ]
+      ],
       "id": "ls-road-line-small",
       "maxzoom": 6,
       "minzoom": 4,
@@ -13709,49 +13682,6 @@
       "source-layer": "lab_cty",
       "type": "symbol"
     }
-  ],
-  "_ssl": true,
-  "metadata": {
-    "arcgisStyleUrl": "https://dev-geoportal.dfs.un.org/arcgis/sharing/rest/content/items/9378b1c195c643b3a7f8f78d956c7766/resources/styles/root.json",
-    "arcgisOriginalItemTitle": "testvt0712-style01",
-    "arcgisEditorExtents": [
-      {
-        "xmin": -20037507.067161843,
-        "ymin": -20037508.342787,
-        "xmax": 20037507.067161843,
-        "ymax": 18440002.895114176,
-        "spatialReference": {
-          "wkid": 4326
-        }
-      },
-      {
-        "xmin": -20037507.067161843,
-        "ymin": -20037508.342787,
-        "xmax": 20037507.067161843,
-        "ymax": 18440002.895114176,
-        "spatialReference": {
-          "wkid": 4326
-        }
-      },
-      {
-        "xmin": -20037507.067161843,
-        "ymin": -20037508.342787,
-        "xmax": 20037507.067161843,
-        "ymax": 18440002.895114176,
-        "spatialReference": {
-          "wkid": 4326
-        }
-      },
-      {
-        "xmin": -20037507.067161843,
-        "ymin": -20037508.342787,
-        "xmax": 20037507.067161843,
-        "ymax": 18440002.895114176,
-        "spatialReference": {
-          "wkid": 4326
-        }
-      }
-    ],
-    "arcgisMinimapVisibility": false
-  }
-}
+],
+"_ssl":true,
+"metadata":{"arcgisStyleUrl":"https://un-vector-tile-toolkit.github.io/consume-gsc-1/VectorTileServer/resources/styles/root.json","arcgisOriginalItemTitle":"Vector Tile by UNVT","arcgisEditorExtents":[{"xmin":-20037507.067161843,"ymin":-20037508.342787,"xmax":20037507.067161843,"ymax":18440002.895114176,"spatialReference":{"wkid":4326}},{"xmin":-20037507.067161843,"ymin":-20037508.342787,"xmax":20037507.067161843,"ymax":18440002.895114176,"spatialReference":{"wkid":4326}},{"xmin":-20037507.067161843,"ymin":-20037508.342787,"xmax":20037507.067161843,"ymax":18440002.895114176,"spatialReference":{"wkid":4326}},{"xmin":-20037507.067161843,"ymin":-20037508.342787,"xmax":20037507.067161843,"ymax":18440002.895114176,"spatialReference":{"wkid":4326}}],"arcgisMinimapVisibility":false}}
