@@ -4,7 +4,7 @@
  "type": "indexedFlat",
  "defaultStyles": "resources/styles",
  "tiles": [
-  "https://dev-unvt.dfs.un.org/vtile-open/zxy/unosm-prod/{z}/{x}/{y}.pbf"
+  "https://dev-unvt.dfs.un.org/unvt/VT/zxy/UniteStreetMapVector/{z}/{x}/{y}.pbf"
  ],
  "initialExtent": {
   "xmin": -2.0037507842788246E7,
